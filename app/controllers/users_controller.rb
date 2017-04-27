@@ -51,11 +51,11 @@ before_action :admin_user, only: [:destroy]
 #everything beyond this point will be private, and not available to call on
   private
 
+    #before filters
+
     def user_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end
-
-    #before filters
 
     #confirms a logged in user
     def logged_in_user
