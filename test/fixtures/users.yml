@@ -5,6 +5,7 @@ michael:
   admin: true
   activated: true
   activated_at: <% Time.zone.now %>
+  organisation_id: 1
 
 inactive:
   name: Inactive User

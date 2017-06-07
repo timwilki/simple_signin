@@ -41,7 +41,7 @@ class PasswordResetsTest < ActionDispatch::IntegrationTest
     patch password_reset_path(user.reset_token),
       params: { email: user.email,
                 user: { password: "foobaz",
-                      password_confirmation: "barquux" } }
+                      password_confirmation: "barquux"} }
       assert_select 'div#error_explanation'
     #empty password
     patch password_reset_path(user.reset_token),
@@ -52,7 +52,7 @@ class PasswordResetsTest < ActionDispatch::IntegrationTest
     # valid password and Confirmation
     patch password_reset_path(user.reset_token),
     params: { email: user.email,
-              user: {password: "foobaz",
+              user: { password: "foobaz",
                     password_confirmation: "foobaz"}}
     assert is_logged_in?
     assert_not flash.empty?

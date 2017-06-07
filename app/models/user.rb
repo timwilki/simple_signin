@@ -9,6 +9,9 @@ class User < ApplicationRecord
           uniqueness: {case_sensitive: false}
   has_secure_password
   validates :password, presence: true, length: {minimum: 6}, allow_nil:true
+  belongs_to :organisation,:inverse_of => :users
+  accepts_nested_attributes_for :organisation
+  #validates :organisation_name, presence: true
 
 class << self
   #returns the hash digest of the given string
@@ -25,7 +28,7 @@ class << self
     SecureRandom.urlsafe_base64
   end
 end
-  #remembers a user in the database for for use in persistant sessions
+  #remembers a user in the database for use in persistant sessions
   def remember
     self.remember_token = User.new_token
     update_attribute(:remember_digest, User.digest(remember_token))

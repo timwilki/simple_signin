@@ -14,11 +14,6 @@
       <%= f.label :password_confirmation, 'Confirmation'%>
       <%= f.password_field :password_confirmation, class: 'form-control'%>
 
-      <%= f.fields_for :organisation do |build|%>
-        <%= f.label :organisation %>
-        <%= build.text_field :name, class: 'form-control' %>
-      <% end %>
-
       <%= f.submit yield(:button_text), class:'btn btn-primary' %>
 
     <% end %>

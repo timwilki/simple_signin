@@ -10,10 +10,12 @@ before_action :admin_user, only: [:destroy]
   def show
     @user = User.find(params[:id])
     redirect_to root_url and return unless @user.activated?
+    @organisation = @user.organisation
   end
 
   def new
     @user = User.new
+    @user.build_organisation
   end
 
   def create
@@ -55,7 +57,7 @@ before_action :admin_user, only: [:destroy]
     #before filters
 
     def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation, organisation_attributes: :name)
     end
 
     #confirms a logged in user
