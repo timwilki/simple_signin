@@ -1,5 +1,9 @@
 class OrganisationsController < ApplicationController
 
+  def index
+    @organisations = Organisation.all
+  end
+
   def show
     @organisation = Organisation.find(params[:id])
   end
@@ -11,6 +15,7 @@ class OrganisationsController < ApplicationController
   def create
     @organisation = Organisation.new(org_params)
   end
+
 
   #everything beyond this point will be private, and not available to call on
   private

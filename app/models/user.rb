@@ -11,7 +11,7 @@ class User < ApplicationRecord
   validates :password, presence: true, length: {minimum: 6}, allow_nil:true
   belongs_to :organisation,:inverse_of => :users
   accepts_nested_attributes_for :organisation
-  #validates :organisation_name, presence: true
+  #validates :organisation_id, presence: true
 
 class << self
   #returns the hash digest of the given string

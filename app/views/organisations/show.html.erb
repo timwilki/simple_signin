@@ -1,0 +1,14 @@
+<% provide(:title) %>
+
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1><%= @organisation.name%></h1>
+      <h4>Team Members</h4>
+        <ul class="users">
+          <%= render @organisation.users %>
+        </ul>
+
+    </section>
+  </aside>
+</div>
