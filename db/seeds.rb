@@ -10,6 +10,7 @@ User.create!( name: "Example User",
               password: "foobar",
               password_confirmation: "foobar",
               admin: true,
+              superadmin: true,
               activated: true,
               activated_at: Time.zone.now,
               :organisation_attributes => {:name => "Google" })

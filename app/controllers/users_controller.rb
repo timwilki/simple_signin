@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
 before_action :correct_user,   only: [:edit, :update]
-before_action :admin_user, only: [:destroy]
+before_action :superadmin_user, only: [:destroy]
 
   def index
     @users = User.where(activated: true).paginate(page: params[:page])
@@ -50,35 +50,8 @@ before_action :admin_user, only: [:destroy]
   end
 
 
-
-#everything beyond this point will be private, and not available to call on
   private
-
-    #before filters
-
-    def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation, organisation_attributes: :name)
-    end
-
-    #confirms a logged in user
-    def logged_in_user
-      unless logged_in?
-        store_location
-        flash[:danger] = "please log in"
-        redirect_to login_url
-      end
-    end
-
-    #confirms a correct user
-    def correct_user
-      @user = User.find(params[:id])
-      redirect_to(root_url) unless current_user?(@user)
-    end
-
-    #confirms and admin user
-    def admin_user
-      redirect_to(root_url) unless current_user.admin?
-    end
-
+  #everything beyond this point will be private, and not available to call on
+  #before filters
 
 end

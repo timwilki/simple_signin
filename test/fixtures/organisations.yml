@@ -4,5 +4,6 @@ TestOrg:
   name: TestOrg
   id: 1
 
-two:
-  name: MyString
+OtherOrg:
+  name: OtherOrg
+  id: 2
