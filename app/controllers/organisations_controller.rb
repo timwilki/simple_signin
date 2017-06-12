@@ -1,13 +1,14 @@
 class OrganisationsController < ApplicationController
-  before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
-  before_action :correct_user,   only: [:edit, :update]
-  before_action :superadmin_user,     only: :destroy
+  before_action :logged_in_user, only: []
+  before_action :correct_user,   only: []
+  before_action :superadmin_user,     only: [:index, :show, :edit, :update, :destroy]
 
   def index
     @organisations = Organisation.all
   end
 
   def show
+    #add code here to limit show view to only the users organisation
     @organisation = Organisation.find(params[:id])
   end
 

@@ -12,7 +12,7 @@ class OrganisationsControllerTest < ActionDispatch::IntegrationTest
   test "should redirect destroy when logged in as a non-superadmin" do
     log_in_as(@other_user)
     assert_no_difference 'Organisation.count' do
-      delete organisation_path(@organisation)
+      delete organisation_path(@other_organisation)
     end
     assert_redirected_to root_url
   end

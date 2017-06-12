@@ -24,6 +24,7 @@ archer:
   activated_at: <% Time.zone.now %>
   admin: false
   superadmin: false
+  organisation_id: 1
 
 
 lana:
@@ -32,6 +33,8 @@ lana:
   password_digest: <%= User.digest('password') %>
   activated: true
   activated_at: <% Time.zone.now %>
+  admin: true
+  organisation_id: 2
 
 malory:
   name: Malory Archer
@@ -39,6 +42,8 @@ malory:
   password_digest: <%= User.digest('password') %>
   activated: true
   activated_at: <% Time.zone.now %>
+  admin: true
+  organisation_id: 1
 
 <% 30.times do |n| %>
 user_<%= n %>:

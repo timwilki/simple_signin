@@ -5,12 +5,14 @@ before_action :superadmin_user, only: [:destroy]
 
   def index
     @users = User.where(activated: true).paginate(page: params[:page])
+    @org_users = current_user.organisation.users.where(activated: true)
   end
 
   def show
     @user = User.find(params[:id])
     redirect_to root_url and return unless @user.activated?
-    @organisation = @user.organisation
+    redirect_to users_path and return unless @user.organisation == current_user.organisation
+    #logic should be show a user only if organisation_id matches current_user
   end
 
   def new
@@ -48,6 +50,7 @@ before_action :superadmin_user, only: [:destroy]
     flash[:success] = "User deleted"
     redirect_to users_url
   end
+
 
 
   private

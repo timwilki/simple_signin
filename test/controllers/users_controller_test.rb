@@ -34,12 +34,12 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
   test "should not allow admin attribute to be edited via the web" do
     log_in_as(@other_user)
-        assert_not @other_user.admin?
+        assert_not @other_user.superadmin?
         patch user_path(@other_user), params: {
                                         user: { password:              "password",
                                                 password_confirmation: "password",
                                                 admin: true } }
-        assert_not @other_user.reload.admin?
+        assert_not @other_user.reload.superadmin?
   end
 
   test "should not allow superadmin attribute to be edited via the web" do
