@@ -1,6 +1,6 @@
 class TeamMembersController < ApplicationController
-  before_action :logged_in_user,      only: [:index, :show]
-  before_action :correct_user,        only: [:show, :edit, :update, :destroy]
+  before_action :logged_in_user,      only: [:show, :new]
+  before_action :correct_user,        only: [:show, :new, :edit, :update, :destroy]
   before_action :superadmin_user,     only: [:index, :show, :edit, :update, :destroy]
 
 
