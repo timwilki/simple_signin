@@ -1,0 +1,14 @@
+<% provide(:title, 'Org users') %>
+<h1>All users</h1>
+
+
+<div>
+  <h3>Add a new team member</h3>
+  <%= form_for TeamMember.new do |f| %>
+  <div class="field">
+    <%= f.text_field :first_name, class:'form-control'%>
+    <%= f.text_field :last_name, class:'form-control'%>
+  </div>
+  <%= f.submit "Post", class: "btn btn-primary" %>
+<% end %>
+</div>

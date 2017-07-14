@@ -52,7 +52,6 @@ before_action :superadmin_user, only: [:destroy]
   end
 
 
-
   private
   #everything beyond this point will be private, and not available to call on
   #before filters

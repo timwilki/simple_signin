@@ -10,6 +10,7 @@ class OrganisationsController < ApplicationController
   def show
     #add code here to limit show view to only the users organisation
     @organisation = Organisation.find(params[:id])
+    @teammembers = @organisation.team_members
   end
 
   def new
@@ -25,8 +26,7 @@ class OrganisationsController < ApplicationController
     flash[:success] = "Organisation deleted"
     redirect_to organisations_url
   end
-
-
+  
   #everything beyond this point will be private, and not available to call on
   private
 
