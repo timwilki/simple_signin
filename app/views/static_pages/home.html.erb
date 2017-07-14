@@ -4,10 +4,13 @@
 
 Boom...You are logged in!
 
-<div class="col-md-8">
-    <h3>Here be a list of your organisations team members</h3>
-    <%= render 'shared/feed' %>
-  </div>
+<% if @feed_items.any? %>
+    <h4>Here be a list of your organisations team members</h4>
+    <%= render @feed_items %>
+  <% else %>
+  <h4>Welcome to RollCall!</h4>
+    <p>Get started by <%= link_to "adding team members", new_team_member_path %></p>
+<% end %>
 
 
 <% else %>

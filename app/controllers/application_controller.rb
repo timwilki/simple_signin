@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
       redirect_to(root_url) unless current_user?(@user)
     end
 
-    #confirms an admin user
+    #confirms a superadmin user
     def superadmin_user
       redirect_to(root_url) unless current_user.superadmin?
     end

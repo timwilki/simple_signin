@@ -1,6 +1,6 @@
 class OrganisationsController < ApplicationController
-  before_action :logged_in_user, only: []
-  before_action :correct_user,   only: []
+  before_action :logged_in_user,      only: [:show, :new]
+  before_action :correct_user,        only: [:show, :new, :edit, :update, :destroy]
   before_action :superadmin_user,     only: [:index, :show, :edit, :update, :destroy]
 
   def index
@@ -26,7 +26,7 @@ class OrganisationsController < ApplicationController
     flash[:success] = "Organisation deleted"
     redirect_to organisations_url
   end
-  
+
   #everything beyond this point will be private, and not available to call on
   private
 
