@@ -1,7 +1,7 @@
 class TeamMembersController < ApplicationController
-  before_action :logged_in_user,      only: [:index, :show, :new]
-  before_action :correct_user,        only: [:edit, :update, :destroy]
-  before_action :superadmin_user,     only: [:index, :show, :edit, :update, :destroy]
+  before_action :logged_in_user,      only: [:index, :show, :new, :update, :destroy]
+  #before_action :correct_user,        only: [:update, :destroy]
+  #before_action :superadmin_user,     only: [:index, :show, :edit, :update, :destroy]
 
 
   def index
@@ -25,6 +25,25 @@ class TeamMembersController < ApplicationController
     end
   end
 
+  def edit
+    @teammember = TeamMember.find(params[:id])
+  end
+
+
+  def update
+    @teammember = TeamMember.find(params[:id])
+    if @teammember.update_attributes(teammember_params)
+      redirect_to @teammember
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @teammember = TeamMember.find(params[:id]).destroy
+    flash[:success] = "Team Member deleted"
+    redirect_to root_url
+  end
 
   private
 

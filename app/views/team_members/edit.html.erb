@@ -1,0 +1,19 @@
+<% provide(:title, 'Org users') %>
+<h1>Edit Team Member</h1>
+
+
+<div>
+  <h3>Edit team member details</h3>
+  <%= form_for (@teammember) do |f| %>
+  <div class="field">
+    <%= f.text_field :first_name, class:'form-control'%>
+    <%= f.text_field :last_name, class:'form-control'%>
+  </div>
+  <%= f.submit "Save Changes", class: "btn btn-primary" %>
+<% end %>
+</div>
+<div>
+  <h3>Delete this team member</h3>
+    <%= link_to "delete", @teammember, method: :delete,
+                                      data: {confirm: "are you sure? "} %>
+</div>

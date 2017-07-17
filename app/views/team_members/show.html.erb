@@ -9,3 +9,7 @@
     </section>
   </aside>
 </div>
+
+<h3>Delete this team member</h3>
+<%= link_to "delete", @teammember, method: :delete,
+                                    data: {confirm: "are you sure? "} %>
