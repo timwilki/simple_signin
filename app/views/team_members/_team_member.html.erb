@@ -1,3 +1,21 @@
-<li>
-  <%= link_to (team_member.first_name + " " + team_member.last_name), team_member %>
-</li>
+
+  <tr>
+    <td class="name"><%= link_to (team_member.first_name + " " + team_member.last_name), team_member %></td>
+  <% if team_member.signin_sheets.last.signedin? %>
+    <td class="status"><b>in</b></td>
+    <td class="date"><em>since
+
+    <%  if team_member.signin_sheets.last.created_at.strftime("%Y:%m:%d") == Time.now.strftime("%Y:%m:%d") %>
+      <%= team_member.signin_sheets.last.created_at.strftime("%I:%M %p") %>  today
+    <%  elsif team_member.signin_sheets.last.created_at.strftime("%Y:%m:%d") == Date.yesterday.strftime("%Y:%m:%d") %>
+      <%= team_member.signin_sheets.last.created_at.strftime("%I:%M %p") %>  yesterday
+    <%  else %>
+       Some time ago
+    <%  end %>
+
+    </em></td>
+  <% else %>
+    <td></td>
+    <td></td>
+  <% end %>
+  </tr>

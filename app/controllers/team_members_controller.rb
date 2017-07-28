@@ -1,11 +1,11 @@
 class TeamMembersController < ApplicationController
-  before_action :logged_in_user,      only: [:index, :show, :new, :update, :destroy]
+  before_action :logged_in_user,      only: [:index, :show, :new, :update, :destroy, :edit]
   #before_action :correct_user,        only: [:update, :destroy]
   #before_action :superadmin_user,     only: [:index, :show, :edit, :update, :destroy]
 
 
   def index
-    @team_members = TeamMember.paginate(page: params[:page])
+    @team_members = current_user.organisation.team_members.paginate(page: params[:page])
   end
 
   def show
@@ -13,6 +13,7 @@ class TeamMembersController < ApplicationController
   end
 
   def new
+    @signin = SigninSheet.new
   end
 
   def create
@@ -50,5 +51,6 @@ class TeamMembersController < ApplicationController
   def teammember_params
     params.require(:team_member).permit(:first_name, :last_name)
   end
+
 
 end

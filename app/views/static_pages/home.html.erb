@@ -2,11 +2,17 @@
 
 <% if logged_in? %>
 
-Boom...You are logged in!
+<div class="row">
+<div class="search_form">
+  <%= form_for (User.new)  do |f| %>
+<%= f.text_field :name, placeholder:"Search..."%><% end %></div>
+<div class="new_teammember"><%= link_to "+ Add Team Members", new_team_member_path %></div>
+</div>
 
 <% if @feed_items.any? %>
-    <h4>Here be a list of your organisations team members</h4>
-    <%= render @feed_items %>
+<table class="team_members_list">
+      <%= render @feed_items %>
+</table>
   <% else %>
   <h4>Welcome to RollCall!</h4>
     <p>Get started by <%= link_to "adding team members", new_team_member_path %></p>

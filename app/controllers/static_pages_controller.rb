@@ -1,9 +1,7 @@
 class StaticPagesController < ApplicationController
 
   def home
-    if logged_in?
-      @feed_items = current_user.organisation.team_members
-    end
+      @feed_items = current_user.organisation.team_members if logged_in?
   end
 
   def help

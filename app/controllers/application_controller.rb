@@ -4,7 +4,6 @@ class ApplicationController < ActionController::Base
 
   private
   #everything beyond this point will be private, and not available to call on
-
   #before filters
 
     def user_params

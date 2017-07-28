@@ -1,7 +1,9 @@
 class OrganisationsController < ApplicationController
-  before_action :logged_in_user,      only: [:index, :show, :new]
+  before_action :logged_in_user,      only: [:index, :show, :new, :edit]
   #before_action :correct_user,        only: [:show, :edit, :update, :destroy]
   before_action :superadmin_user,     only: [:index, :show, :edit, :update, :destroy]
+  has_many :team_members, dependent: :destroy
+  has_many :signin_sheets, through: :team_members, dependent: :destroy
 
   def index
     @organisations = Organisation.all

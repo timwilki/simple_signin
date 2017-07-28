@@ -10,12 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170615184119) do
+ActiveRecord::Schema.define(version: 20170718091754) do
 
   create_table "organisations", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "signin_sheets", force: :cascade do |t|
+    t.boolean  "signedin",       default: true
+    t.integer  "team_member_id"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.index ["team_member_id", "created_at"], name: "index_signin_sheets_on_team_member_id_and_created_at"
+    t.index ["team_member_id"], name: "index_signin_sheets_on_team_member_id"
   end
 
   create_table "team_members", force: :cascade do |t|
