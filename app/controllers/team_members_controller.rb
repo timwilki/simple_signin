@@ -5,7 +5,7 @@ class TeamMembersController < ApplicationController
 
 
   def index
-    @team_members = current_user.organisation.team_members.paginate(page: params[:page])
+    @team_members = current_user.organisation.team_members.paginate(page: params[:page]).order(:first_name)
   end
 
   def show
@@ -40,6 +40,16 @@ class TeamMembersController < ApplicationController
     end
   end
 
+  def import
+    begin
+      @team_member = current_user.organisation.team_members
+      @team_member.import(params[:file])
+      redirect_to root_url, notice: "Team Members imported."
+    rescue
+      redirect_to root_url, notice: "Oh snap! did you follow the right format?"
+    end
+  end
+
   def destroy
     @teammember = TeamMember.find(params[:id]).destroy
     flash[:success] = "Team Member deleted"
@@ -49,7 +59,7 @@ class TeamMembersController < ApplicationController
   private
 
   def teammember_params
-    params.require(:team_member).permit(:first_name, :last_name)
+    params.require(:team_member).permit(:first_name, :last_name, :email)
   end
 
 

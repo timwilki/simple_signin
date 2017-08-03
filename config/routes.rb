@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   resources :organisations
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
-  resources :team_members
+  resources :team_members do
+    collection {post :import}
+  end
   resources :signin_sheets
 end

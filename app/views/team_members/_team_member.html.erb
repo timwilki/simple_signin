@@ -1,7 +1,10 @@
 
   <tr>
     <td class="name"><%= link_to (team_member.first_name + " " + team_member.last_name), team_member %></td>
-  <% if team_member.signin_sheets.last.signedin? %>
+  <% if team_member.signin_sheets.last == nil %>
+  <td></td>
+  <td></td>
+  <% elsif team_member.signin_sheets.last.signedin?%>
     <td class="status"><b>in</b></td>
     <td class="date"><em>since
 
