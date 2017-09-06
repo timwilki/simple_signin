@@ -1,4 +1,3 @@
-@import "bootstrap-sprockets";
 @import "bootstrap";
 
 /* mixins, variables, etc*/
@@ -12,7 +11,6 @@
 /* universal */
 
 body {
-  padding-top: 60px;
   a, a:hover, a:visited {
   color: #4993EA;
   }
@@ -34,17 +32,26 @@ textarea {
   margin-bottom: 10px;
 }
 
-.navbar{
-  background: #4993EA;
-  border: 0;
+header {
+    background: #4993EA;
 }
-.navbar-inverse {
-.navbar-nav li{
-  a {
-    color: #fff;
-    border-right: 1px solid #fff;
+
+.navbar-light {
+  .navbar-nav {
+     li.nav-item {
+       a.nav-link {
+         color: #DAE9FA;
+       }
+      a.nav-link:hover{
+        color: #fff;
+      }
+    }
   }
 }
+
+
+.col{
+  border: 1px solid #000;
 }
 
 /* typography */
@@ -77,14 +84,15 @@ p {
 /* header */
 
 #logo {
-  float: left;
   font-family: 'Roboto', sans-serif;
-  margin-right: 10px;
-  font-size: 1.7em;
+  font-size: 2.5em;
   color: #fff;
   letter-spacing: -1px;
-  padding-top: 9px;
   font-weight: bold;
+  padding-left: 45px;
+  background: url('/assets/rollcall-logo.svg') no-repeat;
+  background-position: left;
+  background-size: 30% ;
 }
 
 #logo:hover {
@@ -94,13 +102,11 @@ p {
 
 
 #launch_signin {
-  float: left;
-  margin-left: 30%;
   background: #7FB3F0;
-  padding: 10px 20px;
   border: 1px solid #fff;
+  padding: 10px 20px;
   border-radius: 3px;
-    color: #fff;
+  color: #fff;
 }
 
 
@@ -167,7 +173,7 @@ input {
 }
 
 .field_with_errors {
-  @extend .has-error;
+//  @extend .has-error;
   .form-control {
     color: $state-danger-text;
   }
@@ -259,7 +265,7 @@ footer {
     padding: 10px 0;
   }
   .name {
-    width: 10%;
+    width: 20%;
     padding-left: 10px;
   }
   .status {
@@ -273,10 +279,6 @@ footer {
 }
 
 /* search form */
-
-.row{
-  padding: 0 15px 0 15px;
-}
 
 
 .search_form {
@@ -294,7 +296,15 @@ margin: 10px 0 10px 0;
 }
 
 .new_teammember{
-  float: right;
+  margin: 10px;
+  a {
+  padding: 5px 0 5px 30px;
+  background: url('/assets/add_teammembers.svg') no-repeat;
+  background-position: left;
+  a:hover {
+    text-decoration: none;
+   }
+  }
 }
 
 
