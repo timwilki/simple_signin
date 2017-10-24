@@ -34,9 +34,11 @@ textarea {
 
 header {
     background: #4993EA;
+/*    box-shadow: 1px 1px 5px #4D6786; */
 }
 
-.navbar-light {
+
+.navbar-inverse {
   .navbar-nav {
      li.nav-item {
        a.nav-link {
@@ -84,13 +86,10 @@ p {
 /* header */
 
 #logo {
-  font-family: 'Roboto', sans-serif;
-  font-size: 2.5em;
+  font-family: 'Questrial', sans-serif;
+  font-size: 2em;
   color: #fff;
-  letter-spacing: -1px;
-  font-weight: bold;
-  padding-left: 45px;
-  background: url('/assets/rollcall-logo.svg') no-repeat;
+/*  background: url('/assets/rollcall-logo.svg') no-repeat; */
   background-position: left;
   background-size: 30% ;
 }
@@ -100,14 +99,6 @@ p {
   text-decoration: none;
 }
 
-
-#launch_signin {
-  background: #7FB3F0;
-  border: 1px solid #fff;
-  padding: 10px 20px;
-  border-radius: 3px;
-  color: #fff;
-}
 
 
 img {
@@ -243,12 +234,17 @@ footer {
   width: 100%;
   margin: 0 0;
   padding: 0 0;
-  tr:nth-child(even) {
+/*  tr:nth-child(even) {
     background: #F7F7F7;
-  }
+  } */
   tr {
-    a, a:hover, a:visited {
+    border-bottom: 1px solid #F2F2F2;
+    a, a:visited {
     color: #4993EA;
+    text-decoration: none;
+    }
+    a:hover{
+      color: #0A386E;
     }
       em{
         color: #ccc;
@@ -266,7 +262,7 @@ footer {
   }
   .name {
     width: 20%;
-    padding-left: 10px;
+    padding-left: 0px;
   }
   .status {
     width: 30%;
@@ -284,7 +280,7 @@ footer {
 .search_form {
 width: 70%;
 float: left;
-margin: 10px 0 10px 0;
+margin: 40px 0 10px 0;
   input{
   width: 100%;
   border: 1px solid #B9D6F7;

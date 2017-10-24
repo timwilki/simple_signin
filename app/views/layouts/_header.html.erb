@@ -1,34 +1,22 @@
 <header>
 
-
-  <nav class="navbar navbar-toggleable-md navbar-light ">
+<div class="container">
+  <nav class="navbar navbar-inverse ">
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <%= link_to "RollCall", root_path, class: "navbar-brand", id: "logo" %>
+    <%= link_to "Rollcall", root_path, class: "navbar-brand", id: "logo" %>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-      <% if logged_in? %>
-      <%= link_to "Launch sign in sheet", team_members_path, id: "launch_signin"  %>
-      <% end %>
-
-
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <%= link_to "Home", root_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Help", help_path, class: "nav-link" %>
-        </li>
+      <ul class="navbar-nav" id="nav-test">
         <% if logged_in? %>
-        <li class="nav-item dropdown">
-          <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <%= link_to "profile", current_user, class: "dropdown-item" %>
-              <%= link_to "settings", edit_user_path(current_user), class: "dropdown-item" %>
-              <%= link_to "Log out", logout_path, method: "delete", class: "dropdown-item" %>
-        </li>
+          <li class="nav-item"><%= link_to "Signin Sheet", team_members_path, class:"nav-link" %></li>
+          <li class="nav-item"><%= link_to "Profile", current_user, class:"nav-link" %></li>
+          <li class="nav-item"><%= link_to "Settings", edit_user_path(current_user), class:"nav-link" %></li>
+          <li class="nav-item"><%= link_to "Help", help_path,  class:"nav-link" %></li>
+          <li class="nav-item"><%= link_to "Log out", logout_path, method: "delete", class:"nav-link" %></li>
+
         <% end %>
         <% if logged_in? %>
           <% if current_user.superadmin? && !current_user?(@user) %>
@@ -48,5 +36,5 @@
     </div>
   </nav>
 
-
+</div>
 </header>

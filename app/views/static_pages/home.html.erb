@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <% if logged_in? %>
+<div class="container">
 
 <div class="row">
 <div class="search_form">
@@ -8,6 +9,8 @@
 <%= text_field_tag :user_name, params[:search], onkeyup: "FilterUsers()" %>
 <% end %></div>
 <div class="new_teammember"><%= link_to "+ Add Team Members", new_team_member_path %></div>
+</div>
+
 </div>
 
 <% if @feed_items.any? %>
