@@ -5,18 +5,28 @@
 
 <div class="row">
 <div class="search_form">
+    <div class="new_teammember"><%= link_to "Add Team Members", new_team_member_path %></div>
   <%= form_tag(root_path)  do %>
-<%= text_field_tag :user_name, params[:search], onkeyup: "FilterUsers()" %>
-<% end %></div>
-<div class="new_teammember"><%= link_to "+ Add Team Members", new_team_member_path %></div>
+<%= text_field_tag :user_name, params[:search], onkeyup: "FilterUsers()", placeholder: "Start typing to filter your team..."  %>
+<% end %>
+</div>
 </div>
 
 </div>
 
 <% if @feed_items.any? %>
-<table class="team_members_list" id="team_members_list">
+<div class="team_members_list">
+  <table class="team_members_list_header">
+    <tr>
+      <th class="name">Name</th>
+      <th class="status">Status</th>
+      <th class="date">Details</th>
+    </tr>
+  </table>
+<table id="team_members_list">
       <%= render @feed_items %>
 </table>
+</div>
   <% else %>
   <h4>Welcome to RollCall!</h4>
     <p>Get started by <%= link_to "adding team members", new_team_member_path %></p>

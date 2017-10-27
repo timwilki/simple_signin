@@ -14,6 +14,7 @@ body {
   a, a:hover, a:visited {
   color: #4993EA;
   }
+  background: #f4f4f4;
 }
 
 section {
@@ -34,7 +35,7 @@ textarea {
 
 header {
     background: #4993EA;
-/*    box-shadow: 1px 1px 5px #4D6786; */
+    box-shadow: 0 4px 2px -2px #ccc;
 }
 
 
@@ -63,10 +64,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 3em;
-  letter-spacing: -2px;
+  font-size: 1.5em;
+  letter-spacing: 0;
   margin-bottom: 30px;
-  text-align: center;
+  text-align: left;
 }
 
 h2 {
@@ -232,13 +233,17 @@ footer {
 
 .team_members_list{
   width: 100%;
-  margin: 0 0;
-  padding: 0 0;
+  background: #F8FBFE;
+  border-collapse: separate;
+  margin: 0;
+  padding: 10px 10px 0 10px;
+  box-shadow: 3px 3px 0px 0px $gray-lighter;
+  table {
+    width: 100%;
 /*  tr:nth-child(even) {
     background: #F7F7F7;
   } */
   tr {
-    border-bottom: 1px solid #F2F2F2;
     a, a:visited {
     color: #4993EA;
     text-decoration: none;
@@ -254,11 +259,16 @@ footer {
         font-weight: normal;
         color: #53B848;
         text-transform: uppercase;
-        margin: 0 0 0 40px;
+        margin: 0 0 0 0;
       }
     }
   td{
     padding: 10px 0;
+    border-bottom: 1px dashed $gray-lighter;
+    }
+  th{
+    color: $gray;
+    border-bottom: 2px solid $gray-lighter;
   }
   .name {
     width: 20%;
@@ -272,37 +282,43 @@ footer {
     text-align: right;
     padding-right: 10px;
   }
+ }
 }
 
 /* search form */
 
 
 .search_form {
-width: 70%;
+width: 100%;
 float: left;
-margin: 40px 0 10px 0;
+margin: 30px 0 10px 0;
   input{
   width: 100%;
-  border: 1px solid #B9D6F7;
+  border: 0px solid #ccc;
   background: #F8FBFE;
-  border-radius: 3px;
-  padding: 7px 7px;
-  color: #B9D6F7;
+  padding: 15px 7px;
+  margin: 10px 0 10px 0;
+  color: #4993EA;
+  box-shadow: 3px 3px 0px 0px $gray-lighter;
 }
 }
 
 .new_teammember{
-  margin: 10px;
-  a {
-  padding: 5px 0 5px 30px;
-  background: url('/assets/add_teammembers.svg') no-repeat;
-  background-position: left;
+  float: right;
+  margin: 0 0 15px 0;
+  a, a:visited, a:hover {
+  padding: 10px;
+  background: #7ED321;
+  text-decoration: none;
+  box-shadow: 3px 3px 0px 0px #C5E99E;
+  color: #ffffff;
+/*  background: url('/assets/add_teammembers.svg') no-repeat;
+  background-position: left; */
+  }
   a:hover {
-    text-decoration: none;
-   }
+    background: #7EC036;
   }
 }
-
 
 
 /* miscellaneous */
