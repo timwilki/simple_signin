@@ -15,3 +15,12 @@ function FilterUsers() {
         }
     }
 }
+
+$(function() {
+  $('#toggle > a').click(function() {
+      var ix = $(this).index();
+
+      $('#individual').toggle( ix === 0 );
+      $('#bulk').toggle( ix === 1 );
+  });
+});

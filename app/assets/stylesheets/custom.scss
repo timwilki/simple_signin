@@ -15,6 +15,9 @@ body {
   color: #4993EA;
   }
   background: #f4f4f4;
+  color: $gray;
+  font-size: 0.9em;
+  font-family: 'Open Sans', Arial, sans-serif;
 }
 
 section {
@@ -53,20 +56,18 @@ header {
 }
 
 
-.col{
-  border: 1px solid #000;
-}
-
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
+  color: #4993EA;
+  font-family: 'Open Sans', Arial, sans-serif;
 }
 
 h1 {
   font-size: 1.5em;
   letter-spacing: 0;
-  margin-bottom: 30px;
+  margin: 30px 0;
   text-align: left;
 }
 
@@ -80,14 +81,17 @@ h2 {
 }
 
 p {
-  font-size: 1.1em;
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 1em;
+  font-weight: 300;
   line-height: 1.7em;
 }
 
 /* header */
 
 #logo {
-  font-family: 'Questrial', sans-serif;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
   font-size: 2em;
   color: #fff;
 /*  background: url('/assets/rollcall-logo.svg') no-repeat; */
@@ -146,15 +150,39 @@ aside {
 /* forms */
 
 input, textarea, select, .uneditable-input {
-  border: 1px solid #bbb;
   width: 100%;
-  margin-bottom: 15px;
   @include box_sizing;
 }
 
-input {
+input.form-control{
   height: auto !important;
+  border: 0px;
+  border-radius: 0;
+  background: #F8FBFE;
+  padding: 15px 7px;
+  margin: 0 0 10px 0;
+  color: #4993EA;
+  box-shadow: 3px 3px 0px 0px $gray-lighter;
 }
+
+.btn-primary{
+  padding: 10px;
+  border: 0px;
+  border-radius: 0;
+  display: inherit;
+  background: #7ED321;
+  box-shadow: 3px 3px 0px 0px #C5E99E;
+  color: #ffffff;
+  width: auto;
+  }
+
+  input.btn-primary:hover{
+    background: #7EC036;
+  }
+
+  .field{
+    margin-top: 30px;
+  }
 
 #error_explanation {
   color: red;
@@ -171,9 +199,37 @@ input {
   }
 }
 
+
+#file{
+
+}
+
 .upload{
-  border: 0;
-  margin: 10px 0 10px 0;
+  width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+#file_upload{
+  padding: 150px 50px 30px 50px;
+  border-radius: 3px;
+  margin: 10px 0 20px 0;
+  border: 1px dashed #4993EA;
+  background: url('/assets/dragdrop.svg') top center no-repeat ;
+  width: auto;
+  span{
+    padding: 10px 20px;
+    margin: 0 0 10px 0;
+    border-radius: 3px;
+    background: #4993EA;
+    color: #fff;
+  }
+}
+
+.example_csv{
 }
 
 .checkbox {
@@ -320,6 +376,29 @@ margin: 30px 0 10px 0;
   }
 }
 
+/* Add new team members */
+
+
+#toggle{
+  border-bottom: 1px solid #4993EA;
+  line-height: 2.2rem;
+  padding: 0 0;
+  a {
+    padding: 5px 5px;
+    margin-right: 10px;
+    color: #4993EA;
+ }
+ a.active, a:hover{
+ border-bottom: 3px solid #4993EA;
+color: #4993EA;
+}
+}
+
+#bulk {
+  display: none;
+}
+
+#individual{}
 
 /* miscellaneous */
 
