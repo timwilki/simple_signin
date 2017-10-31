@@ -1,5 +1,3 @@
-
-
 function FilterUsers() {
     var input, filter, table, tr, a, i;
     input = document.getElementById("user_name");
@@ -16,10 +14,9 @@ function FilterUsers() {
     }
 }
 
-$(function() {
+document.addEventListener("turbolinks:load", function() {
   $('#toggle > a').click(function() {
       var ix = $(this).index();
-
       $('#individual').toggle( ix === 0 );
       $('#bulk').toggle( ix === 1 );
   });

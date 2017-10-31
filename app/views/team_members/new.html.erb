@@ -32,7 +32,6 @@
     <div class="col-4">
 <%= form_tag import_team_members_path, multipart: true do %>
   <%= file_field_tag :file, class: 'upload' %>
-  <label for="file" id="file_upload"><span>Choose your file</span></label>
   <%= submit_tag "Import CSV", class: "btn btn-primary" %>
 <% end %>
 </div>
