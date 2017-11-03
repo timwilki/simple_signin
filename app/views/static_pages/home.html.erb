@@ -35,19 +35,31 @@
 
 <% else %>
 
-<div class="center jumbotron">
-<h1>Welcome to the Sample App</h1>
-
+<div class="container-fluid">
+  <div class="row hero">
+    <div class="col">
+<h1>Track who's on-site &amp; log the hours they work</h1>
 <h2>
-  This is the home page for the
-  <a href="http://www.railstutorial.org/">Ruby on Rails Tutorial</a>
-  sample application.
+RollCall app is the easiest way to know when your team checked in for work and how many hours they did. Use it on your mobile away from the office to conduct roll calls in the event of a fire drill or other emergency situation.
 </h2>
 
-<%= link_to "Sign up now!", signup_path , class: "btn btn-lg btn-primary" %>
+<%= link_to "Get Started", signup_path , class: "btn btn-primary signup" %>
+</div>
+</div>
+<div class="row hero"><div class="col">
+<%= link_to image_tag("admin-landing-page.png", alt: "RollCall app being used in an iPad", class: "hero-image") %>
+</div>
 </div>
 
-<%= link_to image_tag("rails.png", alt: "Rails logo"),
-          'http://rubyonrails.org/' %>
+</div>
+
+<div class="container-fluid blue-section">
+  <div class="row">
+    <div class="col">
+  </div>
+</div>
+
+</div>
+
 
 <% end %>
