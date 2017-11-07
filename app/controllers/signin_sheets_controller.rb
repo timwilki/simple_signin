@@ -17,18 +17,12 @@ class SigninSheetsController < ApplicationController
   def update
     @signout = SigninSheet.find(params[:id])
     @signout.toggle!(:signedin)
+    @signout.update_attribute(:shift_length, @signout.updated_at - @signout.created_at)
     if @signout.save
       redirect_to :back
       flash[:success] = "Take a load off!"
     end
   end
-
-#  def update
-#    @signin = SigninSheet.find_by(team_member_id: "1")
-#    if @signin.save
-#      flash[:success] = "put your feet up, you've earned it!"
-#    end
-#  end
 
   private
 
