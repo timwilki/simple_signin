@@ -1,10 +1,6 @@
 class SigninSheetsController < ApplicationController
   before_action :logged_in_user
 
-  def show
-    @signin_sheet = TeamMember.signin_sheet.last
-  end
-
   def create
     @signin = SigninSheet.new(signin_params)
     @signin.save

@@ -15,6 +15,7 @@ gem 'turbolinks',   '5.0.1'
 gem 'jbuilder',     '2.4.1'
 gem 'chartkick'
 gem 'highcharts-rails'
+gem 'groupdate'
 
 
 group :development, :test do

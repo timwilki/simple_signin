@@ -10,6 +10,8 @@ class TeamMembersController < ApplicationController
 
   def show
     @team_member = TeamMember.find(params[:id])
+    #@signin_sheets = @team_member.signin_sheets.paginate(page: params[:page])
+    @signin_sheets = @team_member.signin_sheets.group_by { |t| t.created_at.beginning_of_month}
   end
 
   def new
@@ -56,11 +58,12 @@ class TeamMembersController < ApplicationController
     redirect_to root_url
   end
 
+
+
   private
 
   def teammember_params
     params.require(:team_member).permit(:first_name, :last_name, :email)
   end
-
 
 end

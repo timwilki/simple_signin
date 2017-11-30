@@ -28,3 +28,21 @@ User.create!(name:  name,
              activated_at: Time.zone.now,
              :organisation_attributes => {:name => org })
 end
+
+Organisation.create!(name: "Google")
+
+
+TeamMember.create!( first_name: "Tim",
+                    last_name: "Wilkinson",
+                    email: "admin@tswdesign.co.uk",
+                    organisation_id: "1",)
+
+5.times do |n|
+  created_at = Faker::Time.backward(5, :morning)
+  updated_at = created_at + 8.hours
+SigninSheet.create!(team_member_id: "1",
+                    created_at: created_at,
+                    updated_at: updated_at,
+                    shift_length: (updated_at - created_at)/60/60,
+                    signedin: false)
+end

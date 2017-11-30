@@ -1,0 +1,17 @@
+
+
+<table class="users">
+  <% @signin_sheets.each do |sheet| %>
+  <tr>
+    <td>
+      <%= sheet.team_member_id%>
+    </td>
+    <td>
+    <%= sheet.created_at.strftime("%Y:%m:%d") %>
+    </td>
+    <td>
+    <%= sheet.shift_length %>
+    <td>
+  </tr>
+  <% end %>
+</table>

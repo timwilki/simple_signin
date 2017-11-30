@@ -8,7 +8,7 @@ class TeamMember < ApplicationRecord
                     uniqueness: { case_sensitive: false }
   belongs_to :organisation
   validates :organisation_id, presence: true
-  has_many  :signin_sheets
+  has_many  :signin_sheets, dependent: :destroy
 
 
   def self.import(file)

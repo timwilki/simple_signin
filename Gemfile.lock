@@ -69,6 +69,8 @@ GEM
     formatador (0.2.5)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
+    groupdate (3.2.0)
+      activesupport (>= 3)
     guard (2.13.0)
       formatador (>= 0.2.4)
       listen (>= 2.7, <= 4.0)
@@ -215,6 +217,7 @@ DEPENDENCIES
   chartkick
   coffee-rails (= 4.2.1)
   faker (= 1.6.6)
+  groupdate
   guard (= 2.13.0)
   guard-minitest (= 2.4.4)
   highcharts-rails
@@ -237,4 +240,4 @@ DEPENDENCIES
   will_paginate (= 3.1.0)
 
 BUNDLED WITH
-   1.15.4
+   1.16.0
