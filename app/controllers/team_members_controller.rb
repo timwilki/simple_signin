@@ -6,6 +6,11 @@ class TeamMembersController < ApplicationController
 
   def index
     @team_members = current_user.organisation.team_members.paginate(page: params[:page]).order(:first_name)
+
+      respond_to do |format|
+        format.html
+        format.csv { send_data @team_members.to_csv }
+      end
   end
 
   def show

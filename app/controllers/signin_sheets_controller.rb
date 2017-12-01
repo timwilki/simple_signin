@@ -1,6 +1,15 @@
 class SigninSheetsController < ApplicationController
   before_action :logged_in_user
 
+  def index
+    @signin_sheets = SigninSheet.all
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @signin_sheets.to_csv }
+    end
+  end
+
   def create
     @signin = SigninSheet.new(signin_params)
     @signin.save

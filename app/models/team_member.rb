@@ -10,6 +10,17 @@ class TeamMember < ApplicationRecord
   validates :organisation_id, presence: true
   has_many  :signin_sheets, dependent: :destroy
 
+  def self.to_csv
+    attributes = %w{id first_name last_name}
+    CSV.generate( headers: true) do |csv|
+      csv << attributes
+
+      all.each do |team_member|
+        csv << team_member.attributes.values_at(*attributes)
+      end
+    end
+  end
+
 
   def self.import(file)
     CSV.foreach(file.path, headers: true) do |row|
