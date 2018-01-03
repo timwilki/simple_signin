@@ -1,0 +1,16 @@
+<% @signin_sheets.each do |month, shifts|%>
+  <table class="team_members_list">
+    <h2><%= month.strftime('%B')%></h2>
+  <b>Total  <%= formatted_duration(shifts.pluck(:shift_length).inject(0){|sum, x| sum + x }) %></b>
+    <tr>
+      <th>Shift length</th>
+      <th>Shift date</th>
+    </tr>
+<% for shift in shifts %>
+<tr>
+<td><%= formatted_duration(shift.shift_length) %></td>
+<td><%= shift.created_at.to_date.to_s(:long) %></td>
+<% end %>
+</tr>
+<% end %>
+</table>

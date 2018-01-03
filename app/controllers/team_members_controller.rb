@@ -15,9 +15,14 @@ class TeamMembersController < ApplicationController
 
   def show
     @team_member = TeamMember.find(params[:id])
-    #@signin_sheets = @team_member.signin_sheets.paginate(page: params[:page])
+    #signin_sheets = @team_member.signin_sheets.paginate(page: params[:page])
     @signin_sheets = @team_member.signin_sheets.group_by { |t| t.created_at.beginning_of_month}
+    @signin_sheets_week = @team_member.signin_sheets.where(created_at:(Date.today.all_week))
+    @signin_sheets_last_week = @team_member.signin_sheets.where(created_at:(1.week.ago.beginning_of_week..1.week.ago.end_of_week))
+    @signin_sheets_month = @team_member.signin_sheets.where(created_at:(Date.today.all_month))
+    @signin_sheets_last_month = @team_member.signin_sheets.where(created_at:(1.month.ago.beginning_of_month..1.month.ago.end_of_month))
   end
+
 
   def new
     @signin = SigninSheet.new
